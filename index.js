@@ -99,32 +99,32 @@ app.put("/books/:bookId/", async (request, response) => {
   const bookDetails = request.body;
   const {
     title,
-    author_id,
+    authorId,
     rating,
-    rating_count,
-    review_count,
+    ratingCount,
+    reviewCount,
     description,
     pages,
-    date_of_publication,
-    edition_language,
+    dateOfPublication,
+    editionLanguage,
     price,
-    online_stores,
+    onlineStores,
   } = bookDetails;
   const updateBookQuery = `
     UPDATE
       book
     SET
       title='${title}',
-      author_id=${author_id},
+      author_id=${authorId},
       rating=${rating},
-      rating_count=${rating_count},
-      review_count=${review_count},
+      rating_count=${ratingCount},
+      review_count=${reviewCount},
       description='${description}',
       pages=${pages},
-      date_of_publication='${date_of_publication}',
-      edition_language='${edition_language}',
+      date_of_publication='${dateOfPublication}',
+      edition_language='${editionLanguage}',
       price=${price},
-      online_stores='${online_stores}'
+      online_stores='${onlineStores}'
     WHERE
       book_id = ${bookId};`;
   await db.run(updateBookQuery);
